@@ -7,3 +7,5 @@
 3. [Extracting specific cells from multiple Excel files and compile it into one Excel file](https://stackoverflow.com/questions/50651346/extracting-specific-cells-from-multiple-excel-files-and-compile-it-into-one-exce)
 
 4. [Excel Macro: Extract Data from Multiple Excel Files (4 Methods)](https://www.exceldemy.com/excel-macro-extract-data-from-multiple-excel-files/)
+
+5. [Python venv: How To Create, Activate, Deactivate, And Delete](https://python.land/virtual-environments/virtualenv)

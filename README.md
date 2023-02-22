@@ -1,6 +1,6 @@
 # py.ms365
 
-Python repo for coding with MS365 packages:
+Python/Macro/VBA repo for automation with MS365 packages:
 
 - Excel
 - Word
