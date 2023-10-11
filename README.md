@@ -1,12 +1,13 @@
-# py.ms365
+# CAE Scripting
 
-Python/Macro/VBA repo for automation with MS365 packages:
+This repo intended to centralize various scripting and automation processes in CAE tasks via Python, Macro, MATLAB/GNU Octave, VBA along with MS365 packages:
 
 - Excel
 - Word
 - Outlook
 - PPT
 - Project
+- Sharepoint
 
 
 ## Library 
