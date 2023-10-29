@@ -1,0 +1,55 @@
+$ENTER COMPONENT  NAME = KOMPO_1       DOFTYPE = DISP MATH
+!
+   $STRUCTURE
+!
+!************   Schraubenvorspannung mit PRETENSION THREAD:
+!
+        $PRETENSION THREAD  SURFACE to SURFNODE PREDIR=0,-3  ALPHA=60.   CIRCUM=JOIN
+!            MYTHREAD1    M8Shaft1B : MountThread1B
+             MYTHREAD1    35360 : 35361
+!            MYTHREAD2    M8Shaft2S : MountThread2S
+             MYTHREAD2    35362 : 35363
+!            MYTHREAD3    CBM8Shaft1 : CBThread1
+             MYTHREAD3    35364 : 35365
+!            MYTHREAD4    CBM8Shaft2 : CBThread2
+             MYTHREAD4    35366 : 35367
+!            MYTHREAD5    CBM8Shaft3 : CBThread3
+             MYTHREAD5    35368 : 35369
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = NSV
+!
+   $END SYSTEM
+!------
+   $CONSTRAINTS  NAME = SPCVAR_1
+!
+   $END CONSTRAINTS
+!------
+   $LOADING  NAME = LOADVAR_1
+!
+! **********  Schraubenvorspannkraft
+!
+      $PRETENSION LOAD   LPAT=2  PREDIR=FORCE_LOCK
+         MYTHREAD1    -18100.0
+         MYTHREAD2    -18100.0
+         MYTHREAD3    -18100.0
+         MYTHREAD4    -18100.0
+!
+      $NLLOAD  TABLE time = list
+                      0.   1.   2.   3.
+         LPAT = 1     1.0  1.0  1.0  1.0
+         LPAT = 2     0.0  1.0  1.0  1.0
+         LPAT = 3     0.0  0.0  1.0  1.0
+         LPAT = 4     0.0  0.0  0.0  1.0
+
+!
+   $END LOADING
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN
