@@ -1,3 +1,10 @@
+
+# CAE Scripting Repository
+
+This directory serves as the hub for CAE related scripting involving cross functional software and CAE disciplines.
+
+## MAC Commands
+
 This is a MATLAB script for exporting modal shapes from ANSYS to MATLAB.
 
 **To use it:**
@@ -48,3 +55,47 @@ This is a MATLAB script for exporting modal shapes from ANSYS to MATLAB.
 **Lines 64-67:** Prompt the user to open the exported files in MATLAB.
 
 **Note:** The script is currently configured to export modal shapes for frequencies up to 2000Hz. To export modal shapes for higher frequencies, change the value of `F5` in the line `(F5.0,E16.8)`.
+
+
+## Front_schraubverbindung_add.dat
+
+The PERMAS DAT file is a finite element analysis (FEA) input file for the PERMAS software. It is used to model a bolted connection with pre-tensioned bolts.
+
+The input file contains the following sections:
+
+* **$STRUCTURE:** This section defines the nodes and elements of the structure.
+* **$SYSTEM:** This section defines the system type (modal in this case).
+* **$CONSTRAINTS:** This section defines the boundary conditions.
+* **$LOADING:** This section defines the loads that are applied to the structure.
+
+To use the input file, you would first need to import it into the PERMAS software. Once the input file is imported, you can solve the model to obtain the results.
+
+Here is a brief explanation of the different sections of the input file:
+
+**$STRUCTURE:**
+
+The `$STRUCTURE` section defines the nodes and elements of the structure. In this case, the structure is a bolted connection with four pre-tensioned bolts.
+
+The `$PRELOAD THREAD` command is used to pre-tension the bolts. The `SURFACE to SURFNODE` option specifies that the pre-tension is applied between a surface and a node. The `PREDIR` option specifies the pre-tension direction in the global coordinate system. The `ALPHA` option specifies the angle of the pre-tension direction relative to the surface normal. The `CIRCUM` option specifies that the pre-tension is applied circumferentially around the bolt.
+
+**$SYSTEM:**
+
+The `$SYSTEM` section defines the system type. In this case, the system type is modal, which stands for modal analysis.
+
+**$CONSTRAINTS:**
+
+The `$CONSTRAINTS` section defines the boundary conditions. In this case, there are no boundary conditions.
+
+**$LOADING:**
+
+The `$LOADING` section defines the loads that are applied to the structure. In this case, the only load is the pre-tension load.
+
+The `$PRELOAD` command is used to apply the pre-tension load. The `LPAT` option specifies the load pattern. The `PREDIR` option specifies the pre-tension direction in the global coordinate system.
+
+**$EXIT COMPONENT:**
+
+The `$EXIT COMPONENT` command is used to exit the component definition.
+
+**$FIN:**
+
+The `$FIN` command is used to end the PERMAS input deck.
